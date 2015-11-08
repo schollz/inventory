@@ -30,5 +30,16 @@ for food in foods:
     if groceries[food]['meanWaitTime'] < groceries[food]['lastBought']:
         print(food)
 
+
+print('\nNext week:')
+firstDay = max(allDays)
+groceries = {}
+for food in foods:
+    groceries[food] = {}
+    groceries[food]['meanWaitTime'] = numpy.mean(numpy.diff(sorted([0] + foods[food] + [firstDay])))
+    groceries[food]['lastBought'] = min(foods[food])
+    if groceries[food]['meanWaitTime'] < groceries[food]['lastBought']+7:
+        print(food)
+
 #print(json.dumps(groceries,indent=2))
 
