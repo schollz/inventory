@@ -6,7 +6,7 @@ today = date.today()
 foods = {}
 allDays = []
 
-with open('list.csv','r') as f:
+with open('data.csv','r') as f:
     for line in f:
         csvs = line.split(',')
         if '/' in csvs[0]:
